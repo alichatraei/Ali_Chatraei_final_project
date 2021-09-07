@@ -1,4 +1,8 @@
-$ff-primary: 'Poppins', sans-serif;
+@font-face {
+  font-family: "IRANSANSPRO";
+  src: url("./Assets/Fonts/IRANSansX-Regular.woff");
+}
+$ff-primary: "IRANSANSPRO", sans-serif;
 
 $fw-extralight: 200;
 $fw-light: 300;
