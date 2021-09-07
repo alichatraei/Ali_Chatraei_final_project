@@ -51,13 +51,13 @@ class App extends Component {
   }
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state: any) => {
   return {
     isAuth: state.auth.token !== null
   };
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch: any) => {
   return {
     onTryAutoSignup: () => dispatch(actions.authCheckState())
   };
