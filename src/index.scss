@@ -1,0 +1,25 @@
+$ff-primary: 'Poppins', sans-serif;
+
+$fw-extralight: 200;
+$fw-light: 300;
+$fw-medium: 500;
+$fw-semibold: 600;
+$fw-bold: 700;
+
+@mixin mediaSm {
+  @media screen and (min-width: 480px) {
+    @content;
+  }
+}
+
+@mixin mediaMd {
+  @media screen and (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin mediaLg {
+  @media screen and (min-width: 1224px) {
+    @content;
+  }
+}
