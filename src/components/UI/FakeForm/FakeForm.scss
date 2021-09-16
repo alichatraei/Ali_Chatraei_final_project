@@ -1,4 +1,4 @@
-@import '../../../index.scss';
+@import "../../../index.scss";
 
 .questions-form {
   display: flex;
@@ -13,9 +13,10 @@
     background: transparent;
     border: none;
     border-bottom: 1px solid #fff;
-    margin-bottom: .6em;
+    margin-bottom: 0.6em;
     color: #fff;
-
+    padding: 0.5rem;
+    outline: none;
     &::placeholder {
       color: #fff;
     }
@@ -25,6 +26,8 @@
     background: transparent;
     border: 1px solid #fff;
     color: #fff;
+    padding: 0.3rem 0.8rem;
+    cursor: pointer;
 
     @include mediaSm {
       width: 140px;

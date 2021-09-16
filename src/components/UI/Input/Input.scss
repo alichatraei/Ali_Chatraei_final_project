@@ -1,7 +1,7 @@
-@import '../../../index.scss';
+@import "../../../index.scss";
 
 .input-wrapper {
-  margin-top: .8em;
+  margin-top: 0.8em;
 }
 
 .label {
@@ -12,6 +12,7 @@
   width: 100%;
   line-height: 1.8em;
   outline: none;
+  padding: 0.5rem;
   border: none;
   border-bottom: 1px solid #000;
   background: #fff;

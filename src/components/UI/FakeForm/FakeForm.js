@@ -1,12 +1,12 @@
-import React from 'react';
-import './FakeForm.scss';
+import React from "react";
+import "./FakeForm.scss";
 
 const fakeForm = () => (
   <form className="questions-form">
-    <input type="text" placeholder="Name" />
-    <input type="text" placeholder="Email" />
-    <textarea placeholder="Message"></textarea>
-    <button>Send</button>
+    <input type="text" placeholder="نام" />
+    <input type="text" placeholder="ایمیل" />
+    <textarea placeholder="متن دلخواه"></textarea>
+    <button>ارسال</button>
   </form>
 );
 
