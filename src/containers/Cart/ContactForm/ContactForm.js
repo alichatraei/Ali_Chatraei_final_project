@@ -1,101 +1,101 @@
-import React, { Component } from 'react';
-import './ContactForm.scss';
-import axios from '../../../axios';
-import { connect } from 'react-redux';
-import ErrorHandler from '../../../hoc/ErrorHandler';
-import * as actions from '../../../store/actions';
-import { checkValidity } from '../../../shared/Validity';
-import PropTypes from 'prop-types';
+import React, { Component } from "react";
+import "./ContactForm.scss";
+import axios from "../../../axios";
+import { connect } from "react-redux";
+import ErrorHandler from "../../../hoc/ErrorHandler";
+import * as actions from "../../../store/actions";
+import { checkValidity } from "../../../shared/Validity";
+import PropTypes from "prop-types";
 
-import Button from '../../../components/UI/Button/Button';
-import Spinner from '../../../components/UI/Spinner/Spinner';
-import Input from '../../../components/UI/Input/Input';
+import Button from "../../../components/UI/Button/Button";
+import Spinner from "../../../components/UI/Spinner/Spinner";
+import Input from "../../../components/UI/Input/Input";
 
 class ContactForm extends Component {
   state = {
     orderForm: {
       name: {
-        elementType: 'input',
+        elementType: "input",
         elementConfig: {
-          type: 'text',
-          placeholder: 'Name'
+          type: "text",
+          placeholder: "نام",
         },
-        value: '',
+        value: "",
         validation: {
-          required: true
+          required: true,
         },
         valid: false,
-        touched: false
+        touched: false,
       },
       street: {
-        elementType: 'input',
+        elementType: "input",
         elementConfig: {
-          type: 'text',
-          placeholder: 'Street'
+          type: "text",
+          placeholder: "خیابان",
         },
-        value: '',
+        value: "",
         validation: {
-          required: true
+          required: true,
         },
         valid: false,
-        touched: false
+        touched: false,
       },
       zipCode: {
-        elementType: 'input',
+        elementType: "input",
         elementConfig: {
-          type: 'number',
-          placeholder: 'ZIP Code'
+          type: "number",
+          placeholder: "کد پستی",
         },
-        value: '',
+        value: "",
         validation: {
           required: true,
           minLength: 5,
-          maxLength: 5
+          maxLength: 5,
         },
         valid: false,
-        touched: false
+        touched: false,
       },
       country: {
-        elementType: 'input',
+        elementType: "input",
         elementConfig: {
-          type: 'text',
-          placeholder: 'Country'
+          type: "text",
+          placeholder: "کشور",
         },
-        value: '',
-        validation: {
-          required: true
-        },
-        valid: false,
-        touched: false
-      },
-      email: {
-        elementType: 'input',
-        elementConfig: {
-          type: 'text',
-          placeholder: 'E-mail'
-        },
-        value: '',
+        value: "",
         validation: {
           required: true,
-          isEmail: true
         },
         valid: false,
-        touched: false
+        touched: false,
+      },
+      email: {
+        elementType: "input",
+        elementConfig: {
+          type: "text",
+          placeholder: "ایمیل",
+        },
+        value: "",
+        validation: {
+          required: true,
+          isEmail: true,
+        },
+        valid: false,
+        touched: false,
       },
       deliveryMethod: {
-        elementType: 'select',
+        elementType: "select",
         elementConfig: {
           options: [
-            { value: 'fastest', displayValue: 'Fastest' },
-            { value: 'cheapest', displayValue: 'Cheapest' },
-          ]
+            { value: "fastest", displayValue: "سریعتر راه" },
+            { value: "cheapest", displayValue: "ارزان ترین" },
+          ],
         },
-        value: 'fastest',
+        value: "fastest",
         valid: true,
-        validation: {}
+        validation: {},
       },
     },
-    formIsValid: false
+    formIsValid: false,
   };
 
   orderHandler = (e) => {
@@ -103,14 +103,15 @@ class ContactForm extends Component {
 
     const formData = {};
     for (let formElementIndentifier in this.state.orderForm) {
-      formData[formElementIndentifier] = this.state.orderForm[formElementIndentifier].value
+      formData[formElementIndentifier] =
+        this.state.orderForm[formElementIndentifier].value;
     }
 
     const order = {
       products: this.props.cartItems,
       price: this.props.price,
       orderData: formData,
-      userId: this.props.userId
+      userId: this.props.userId,
     };
 
     this.props.purchaseOrder(order, this.props.token);
@@ -120,49 +121,53 @@ class ContactForm extends Component {
   inputChangedHandler = (e, inputIndentifier) => {
     // clone of orderForm
     const updatedOrderForm = {
-      ...this.state.orderForm
+      ...this.state.orderForm,
     };
     // clone each elements (name, street, ...)
     const updatedFormElement = {
-      ...updatedOrderForm[inputIndentifier]
+      ...updatedOrderForm[inputIndentifier],
     };
 
     // listener for each value of elements
     updatedFormElement.value = e.target.value;
 
     // VALIDATION
-    updatedFormElement.valid = checkValidity(updatedFormElement.value, updatedFormElement.validation);
+    updatedFormElement.valid = checkValidity(
+      updatedFormElement.value,
+      updatedFormElement.validation
+    );
     updatedFormElement.touched = true;
 
     let formIsValid = true;
     for (let inputIdentifier in updatedOrderForm) {
       formIsValid = updatedOrderForm[inputIdentifier].valid && formIsValid;
-    };
+    }
 
     // change each element value in orderForm elements
     updatedOrderForm[inputIndentifier] = updatedFormElement;
 
     this.setState({
       orderForm: updatedOrderForm,
-      formIsValid
+      formIsValid,
     });
   };
 
   render() {
     // convert object of objects into array of objects
     const formElementsArray = [];
-    for (let key in this.state.orderForm) { // keys are name, street, ...
+    for (let key in this.state.orderForm) {
+      // keys are name, street, ...
       formElementsArray.push({
         id: key,
-        config: this.state.orderForm[key]
+        config: this.state.orderForm[key],
       });
-    };
+    }
 
     let form = (
       <form className="contact-form" onSubmit={this.orderHandler}>
-        <h3 className="title">Enter Your Contact Data</h3>
+        <h3 className="title">لطفا اطلاعات تماس خودتان را وارد کنید</h3>
         {/* <Input elementType="..." elementConfig="..." value="..." /> */}
-        {formElementsArray.map(formElement => (
+        {formElementsArray.map((formElement) => (
           <Input
             key={formElement.id}
             elementType={formElement.config.elementType}
@@ -177,17 +182,20 @@ class ContactForm extends Component {
         <Button
           btnType="dark"
           clicked={this.orderHandler}
-          disabled={!this.state.formIsValid}>Order</Button>
+          disabled={!this.state.formIsValid}
+        >
+          سفارش
+        </Button>
       </form>
     );
 
     if (this.props.loading) {
-      form = <Spinner />
+      form = <Spinner />;
     }
 
     return form;
   }
-};
+}
 
 ContactForm.propTypes = {
   cartItems: PropTypes.array.isRequired,
@@ -195,23 +203,27 @@ ContactForm.propTypes = {
   loading: PropTypes.bool.isRequired,
   token: PropTypes.string,
   userId: PropTypes.string,
-  purchaseOrder: PropTypes.func.isRequired
+  purchaseOrder: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     cartItems: state.products.cart,
     price: state.products.orderTotal,
     loading: state.order.loading,
     token: state.auth.token,
-    userId: state.auth.userId
+    userId: state.auth.userId,
   };
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
-    purchaseOrder: (orderData, token) => dispatch(actions.purchaseOrder(orderData, token))
+    purchaseOrder: (orderData, token) =>
+      dispatch(actions.purchaseOrder(orderData, token)),
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ErrorHandler(ContactForm, axios));
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ErrorHandler(ContactForm, axios));
