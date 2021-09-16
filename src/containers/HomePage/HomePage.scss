@@ -1,11 +1,11 @@
-@import '../../index.scss';
+@import "../../index.scss";
 
 .home-container {
   width: 100%;
   max-width: 1200px;
 
   .showcase {
-    padding: 0 .5em;
+    padding: 0 0.5em;
 
     .main-title {
       text-align: center;
@@ -28,7 +28,9 @@
     color: #fff;
     padding: 1em;
     margin: 1.2em 0 1.8em 0;
-
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
     @include mediaMd {
       height: calc(400px + 16vw);
     }
@@ -37,7 +39,6 @@
       font-size: 2.6em;
       text-transform: uppercase;
       font-weight: $fw-bold;
-      margin-top: 1.6em;
 
       @include mediaMd {
         font-size: 3.6em;
@@ -76,10 +77,10 @@ $totalAnimationTime: 20s;
     position: absolute;
     animation: anime 20s infinite;
     opacity: 0;
-    padding-left: 1em;
+    padding-right: 1em;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    justify-content: center;
   }
 
   .slide:nth-child(1) {
@@ -103,31 +104,30 @@ $totalAnimationTime: 20s;
 
   .slide:nth-child(5) {
     animation-delay: 0s;
+    color: #fff;
   }
 
   .title {
     font-size: 1.6em;
-    text-transform: uppercase;
     font-weight: $fw-bold;
-    margin-top: 5em;
-  
+    margin: 0;
     @include mediaMd {
       font-size: 3.6em;
       margin-top: 5em;
     }
   }
-  
+
   .subtitle {
     font-size: 1em;
     max-width: 260px;
   }
 }
 
-@keyframes anime {   
-  25%{
-    opacity:1;
+@keyframes anime {
+  25% {
+    opacity: 1;
   }
-  40%{
-    opacity:0;
+  40% {
+    opacity: 0;
   }
-} 
+}

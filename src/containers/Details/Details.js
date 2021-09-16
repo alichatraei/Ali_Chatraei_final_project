@@ -50,7 +50,7 @@ class Details extends Component {
         </Modal>
         <ul className="details-container">
           <DetailItem>
-            <p className="detail-subtitle">Select Size:</p>
+            <p className="detail-subtitle">انتخاب سایز محصول:</p>
             <div className="switch-field">
               <input
                 type="radio"
