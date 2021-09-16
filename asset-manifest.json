@@ -1,0 +1,40 @@
+{
+  "files": {
+    "main.css": "/Ali_Chatraei_Final_Project/static/css/main.357c9e57.chunk.css",
+    "main.js": "/Ali_Chatraei_Final_Project/static/js/main.c3a87d9a.chunk.js",
+    "main.js.map": "/Ali_Chatraei_Final_Project/static/js/main.c3a87d9a.chunk.js.map",
+    "runtime-main.js": "/Ali_Chatraei_Final_Project/static/js/runtime-main.02071a31.js",
+    "runtime-main.js.map": "/Ali_Chatraei_Final_Project/static/js/runtime-main.02071a31.js.map",
+    "static/js/2.dd1eb664.chunk.js": "/Ali_Chatraei_Final_Project/static/js/2.dd1eb664.chunk.js",
+    "static/js/2.dd1eb664.chunk.js.map": "/Ali_Chatraei_Final_Project/static/js/2.dd1eb664.chunk.js.map",
+    "static/css/3.7997c8b7.chunk.css": "/Ali_Chatraei_Final_Project/static/css/3.7997c8b7.chunk.css",
+    "static/js/3.77bed70d.chunk.js": "/Ali_Chatraei_Final_Project/static/js/3.77bed70d.chunk.js",
+    "static/js/3.77bed70d.chunk.js.map": "/Ali_Chatraei_Final_Project/static/js/3.77bed70d.chunk.js.map",
+    "static/css/4.bff2337c.chunk.css": "/Ali_Chatraei_Final_Project/static/css/4.bff2337c.chunk.css",
+    "static/js/4.e2cbdd4b.chunk.js": "/Ali_Chatraei_Final_Project/static/js/4.e2cbdd4b.chunk.js",
+    "static/js/4.e2cbdd4b.chunk.js.map": "/Ali_Chatraei_Final_Project/static/js/4.e2cbdd4b.chunk.js.map",
+    "index.html": "/Ali_Chatraei_Final_Project/index.html",
+    "static/css/3.7997c8b7.chunk.css.map": "/Ali_Chatraei_Final_Project/static/css/3.7997c8b7.chunk.css.map",
+    "static/css/4.bff2337c.chunk.css.map": "/Ali_Chatraei_Final_Project/static/css/4.bff2337c.chunk.css.map",
+    "static/css/main.357c9e57.chunk.css.map": "/Ali_Chatraei_Final_Project/static/css/main.357c9e57.chunk.css.map",
+    "static/js/2.dd1eb664.chunk.js.LICENSE.txt": "/Ali_Chatraei_Final_Project/static/js/2.dd1eb664.chunk.js.LICENSE.txt",
+    "static/media/Auth.scss": "/Ali_Chatraei_Final_Project/static/media/IRANSansX-Regular.97fa446c.woff",
+    "static/media/Sale.e41e5a3c.jpg": "/Ali_Chatraei_Final_Project/static/media/Sale.e41e5a3c.jpg",
+    "static/media/cart_white.da27256a.png": "/Ali_Chatraei_Final_Project/static/media/cart_white.da27256a.png",
+    "static/media/fb.fef265c2.png": "/Ali_Chatraei_Final_Project/static/media/fb.fef265c2.png",
+    "static/media/heart_white.6d8d96ef.png": "/Ali_Chatraei_Final_Project/static/media/heart_white.6d8d96ef.png",
+    "static/media/instagram.5dd5d4b2.png": "/Ali_Chatraei_Final_Project/static/media/instagram.5dd5d4b2.png",
+    "static/media/logo.d212af28.png": "/Ali_Chatraei_Final_Project/static/media/logo.d212af28.png",
+    "static/media/slide_1.3b7859a6.jpg": "/Ali_Chatraei_Final_Project/static/media/slide_1.3b7859a6.jpg",
+    "static/media/slide_2.72c099a6.jpg": "/Ali_Chatraei_Final_Project/static/media/slide_2.72c099a6.jpg",
+    "static/media/slide_3.834bf60c.jpg": "/Ali_Chatraei_Final_Project/static/media/slide_3.834bf60c.jpg",
+    "static/media/slide_4.93e149c0.jpg": "/Ali_Chatraei_Final_Project/static/media/slide_4.93e149c0.jpg",
+    "static/media/slide_5.d13eb652.jpg": "/Ali_Chatraei_Final_Project/static/media/slide_5.d13eb652.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.02071a31.js",
+    "static/js/2.dd1eb664.chunk.js",
+    "static/css/main.357c9e57.chunk.css",
+    "static/js/main.c3a87d9a.chunk.js"
+  ]
+}
