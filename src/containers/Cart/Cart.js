@@ -40,13 +40,14 @@ class Cart extends Component {
 
     let selected = (
       <p className="main-info">
-        You select <span className="bold">{cartItems.length}</span> products.
+        شما <span className="bold">{cartItems.length}</span> محصول انتخاب کرده
+        اید.
       </p>
     );
     if (cartItems.length === 1)
       selected = (
         <p className="main-info">
-          You select <span className="bold">1</span> product.
+          شما <span className="bold">۱</span> محصول انتخاب کرده اید.
         </p>
       );
 
@@ -57,7 +58,7 @@ class Cart extends Component {
             className="main-info"
             style={{ marginTop: "20px", fontWeight: "500" }}
           >
-            You do not have any products on the list yet.
+            شما تاکنون هیچ محصولی در سبد خرید ندارید.
           </p>
         ))
       : (list = (
@@ -78,8 +79,8 @@ class Cart extends Component {
                     </div>
                     <div className="cart-item-content">
                       <h3 className="name">{title}</h3>
-                      <p className="value">Size: {size}</p>
-                      <p className="value">Quantity:</p>
+                      <p className="value">سایز: {size}</p>
+                      <p className="value">تعداد:</p>
                       <div className="button-wrapper">
                         <button
                           disabled={amount === 1}
@@ -96,10 +97,10 @@ class Cart extends Component {
                           +
                         </button>
                       </div>
-                      <p className="value">Price: {price}.00 $</p>
-                      <p className="value">Total: {total}.00 $</p>
+                      <p className="value">قیمت: {price}.۰۰۰ ریال</p>
+                      <p className="value">کل تعداد: {total}.۰۰۰ ریال</p>
                       <Button clicked={() => remove(id)} btnType="small">
-                        Remove
+                        حذف محصول
                       </Button>
                     </div>
                   </li>
@@ -113,11 +114,11 @@ class Cart extends Component {
       <>
         <ScrollToTopOnMount />
         <div className="cart-container">
-          <h2 className="main-title">Shopping Cart</h2>
+          <h2 className="main-title">سبد خرید شما</h2>
           {selected}
           {cartItems.length > 0 && (
             <Button clicked={clearCart} btnType="dark">
-              Clear Cart
+              پاک کردن سبد خرید
             </Button>
           )}
           <div className="content-wrapper">
