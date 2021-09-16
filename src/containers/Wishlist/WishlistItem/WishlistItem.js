@@ -1,11 +1,11 @@
-import React from 'react';
-import './WishlistItem.scss';
-import { connect } from 'react-redux';
-import * as actions from '../../../store/actions';
-import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
+import React from "react";
+import "./WishlistItem.scss";
+import { connect } from "react-redux";
+import * as actions from "../../../store/actions";
+import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
-import Button from '../../../components/UI/Button/Button';
+import Button from "../../../components/UI/Button/Button";
 
 const wishlistItem = (props) => {
   const { id, title, subtitle, img, description, price } = props.item;
@@ -19,14 +19,18 @@ const wishlistItem = (props) => {
           <img src={img} alt="" className="wishlist-item-img" />
         </div>
         <div className="wishlist-info">
-          <h3 className="wishlist-subtitle">Description:</h3>
+          <h3 className="wishlist-subtitle">توضیحات محصول:</h3>
           <p className="wishlist-value">{description}</p>
-          <h3 className="wishlist-subtitle">Price: {price}.00 $</h3>
+          <h3 className="wishlist-subtitle">قیمت: {price}.۰۰۰ ریال</h3>
           <div className="btn-wrapper">
             <Link to={`/details/${id}`}>
-              <Button clicked={() => props.showDetails(id)}>Show Details</Button>
+              <Button clicked={() => props.showDetails(id)}>
+                نمایش جزئیات بیشتر محصول
+              </Button>
             </Link>
-            <Button clicked={() => props.removeWishlistItem(id)} btnType="dark">Remove</Button>
+            <Button clicked={() => props.removeWishlistItem(id)} btnType="dark">
+              حذف از لیست
+            </Button>
           </div>
         </div>
       </div>
@@ -36,13 +40,13 @@ const wishlistItem = (props) => {
 
 wishlistItem.propTypes = {
   showDetails: PropTypes.func.isRequired,
-  removeWishlistItem: PropTypes.func.isRequired
+  removeWishlistItem: PropTypes.func.isRequired,
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
-    showDetails: id => dispatch(actions.showDetails(id)),
-    removeWishlistItem: id => dispatch(actions.removeWishlistItem(id))
+    showDetails: (id) => dispatch(actions.showDetails(id)),
+    removeWishlistItem: (id) => dispatch(actions.removeWishlistItem(id)),
   };
 };
 
