@@ -1,14 +1,15 @@
-import React, { Component } from 'react';
-import './DetailItem.scss';
-import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
-import PropTypes from 'prop-types';
+import React, { Component } from "react";
+import "./DetailItem.scss";
+import { connect } from "react-redux";
+import { Redirect } from "react-router-dom";
+import PropTypes from "prop-types";
 
 class DetailItem extends Component {
   render() {
     if (this.props.detailProduct === null) return <Redirect to="/" />;
 
-    const { title, subtitle, img, description, price } = this.props.detailProduct;
+    const { title, subtitle, img, description, price } =
+      this.props.detailProduct;
 
     return (
       <li className="detail-item">
@@ -19,24 +20,24 @@ class DetailItem extends Component {
             <img src={img} alt="" className="detail-item-img" />
           </div>
           <div className="detail-info">
-            <h3 className="detail-subtitle">Description:</h3>
+            <h3 className="detail-subtitle">توضیحات:</h3>
             <p className="detail-value">{description}</p>
-            <h3 className="detail-subtitle">Price: {price}.00 $</h3>
+            <h3 className="detail-subtitle">قیمت: {price}.۰۰۰ ریال</h3>
             {this.props.children}
           </div>
         </div>
       </li>
-    )
+    );
   }
-};
+}
 
 DetailItem.propTypes = {
-  detailProduct: PropTypes.object
+  detailProduct: PropTypes.object,
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    detailProduct: state.products.detailProduct
+    detailProduct: state.products.detailProduct,
   };
 };
 
