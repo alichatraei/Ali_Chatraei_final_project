@@ -34,30 +34,19 @@ class HomePage extends Component {
           showBackdrop={this.props.purchased}
           closeModal={this.closeModal}
         >
-          <p>Order completed successfully.</p>
+          <p>سفارش با موفقیت پرداخت شد</p>
           <Button clicked={this.closeModal} btnType="dark">
-            Got it
+            متوجه شدم
           </Button>
         </Modal>
         <div className="home-container">
           <div className="showcase">
-            <h3 className="main-title">
-              Stylish black and white clothes for every occasion.
-            </h3>
-            <p className="main-info">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-              eleifend ligula neque, at faucibus metus rutrum sed. Fusce
-              interdum at est eget aliquet. Suspendisse potenti. Curabitur ac
-              luctus magna.
-            </p>
+            <h3 className="main-title">استایل های زیبا با تم های مشکی زیبا</h3>
+            <p className="main-info">مناسب افراد شیک پوش و خوش ظاهر</p>
           </div>
           <div style={{ backgroundImage: `url(${saleBg})` }} className="sale">
-            <h1 className="title">Sale</h1>
-            <p className="subtitle">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit
-              dolores hic sint excepturi, omnis minus. Perferendis, velit ut?
-              In, voluptas.
-            </p>
+            <h1 className="title">خرید</h1>
+            <p className="subtitle">مناسب افراد شیک پوش و خوش ظاهر</p>
           </div>
           <div className="slider">
             {slides.map((slide) => (
@@ -66,10 +55,9 @@ class HomePage extends Component {
                 style={{ backgroundImage: `url('${slide}')` }}
                 className="slide"
               >
-                <h3 className="title">New Collection</h3>
+                <h3 className="title">مدل های جدید از راه رسید</h3>
                 <h3 className="subtitle">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Voluptas, voluptate!
+                  مدل های زیبا و خوش تن برای افراد جذاب
                 </h3>
               </div>
             ))}
