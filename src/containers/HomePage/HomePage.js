@@ -9,11 +9,11 @@ import Button from "../../components/UI/Button/Button";
 import ScrollToTopOnMount from "../../shared/ScrollToTopOnMount";
 
 import saleBg from "assets/home_page/Sale.jpg";
-import slideOne from "../../assets/home_page/slide_1.jpg";
-import slideTwo from "../../assets/home_page/slide_2.jpg";
-import slideThree from "../../assets/home_page/slide_3.jpg";
-import slideFour from "../../assets/home_page/slide_4.jpg";
-import slideFive from "../../assets/home_page/slide_5.jpg";
+import slideOne from "assets/home_page/slide_1.jpg";
+import slideTwo from "assets/home_page/slide_2.jpg";
+import slideThree from "assets/home_page/slide_3.jpg";
+import slideFour from "assets/home_page/slide_4.jpg";
+import slideFive from "assets/home_page/slide_5.jpg";
 
 const slides = [];
 slides.push(slideOne, slideTwo, slideThree, slideFour, slideFive);
