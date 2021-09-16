@@ -5,11 +5,10 @@
   z-index: 10;
   background-color: #000;
   width: 100%;
-  height: 42px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 5px 15px;
+  padding: 10px 15px;
 
   .left-wrapper {
     display: flex;
@@ -33,13 +32,9 @@
   }
 }
 
-.logo {
-  width: 110px;
-  display: none;
-
-  @include mediaMd {
-    display: block;
-  }
+.logoTitle {
+  color: #fff;
+  margin: 0 1rem;
 }
 
 .navigation {

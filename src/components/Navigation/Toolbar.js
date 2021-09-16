@@ -1,14 +1,13 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { toggleSideDrawer } from '../../store/actions';
-import './Navigation.scss';
+import React from "react";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { toggleSideDrawer } from "../../store/actions";
+import "./Navigation.scss";
 
-import NavigationItems from './NavigationItems/NavigationItems';
-import NavigationItemsIcons from './NavigationItems/NavigationItemsIcons';
+import NavigationItems from "./NavigationItems/NavigationItems";
+import NavigationItemsIcons from "./NavigationItems/NavigationItemsIcons";
 
-import logo from '../../assets/icons/logo.png';
-import menuIcon from '../../assets/icons/bars_white.png';
+import menuIcon from "../../assets/icons/bars_white.png";
 
 const toolbar = ({ toggleSideDrawer }) => (
   <header className="header">
@@ -16,7 +15,7 @@ const toolbar = ({ toggleSideDrawer }) => (
       <button onClick={toggleSideDrawer} className="toggle-side-drawer">
         <img src={menuIcon} alt="menu button" />
       </button>
-      <img className="logo" src={logo} alt="Elegant Store" />
+      <h1 className="logoTitle">وی شاپ</h1>
       <nav className="navigation">
         <NavigationItems />
       </nav>
@@ -28,7 +27,7 @@ const toolbar = ({ toggleSideDrawer }) => (
 );
 
 toolbar.propTypes = {
-  toggleSideDrawer: PropTypes.func.isRequired
+  toggleSideDrawer: PropTypes.func.isRequired,
 };
 
 export default connect(null, { toggleSideDrawer })(toolbar);
