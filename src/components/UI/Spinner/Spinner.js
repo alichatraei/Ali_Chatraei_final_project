@@ -1,8 +1,6 @@
-import React from 'react';
-import './Spinner.scss';
+import React from "react";
+import "./Spinner.scss";
 
-const spinner = () => (
-  <div className="loader">Loading...</div>
-);
+const spinner = () => <div className="loader">لطفا صبر کنید...</div>;
 
 export default spinner;
