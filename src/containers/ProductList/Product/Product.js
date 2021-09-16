@@ -1,21 +1,21 @@
-import React, { Component } from 'react';
-import './Product.scss';
-import { Link } from 'react-router-dom';
+import React, { Component } from "react";
+import "./Product.scss";
+import { Link } from "react-router-dom";
 
-import Button from '../../../components/UI/Button/Button';
-import Spinner from '../../../components/UI/Spinner/Spinner';
+import Button from "../../../components/UI/Button/Button";
+import Spinner from "../../../components/UI/Spinner/Spinner";
 
 class Product extends Component {
   state = {
     isLoaded: false,
-    isError: false
+    isError: false,
   };
 
   componentDidMount() {
     this.load(this.img);
-  };
+  }
 
-  load = img => {
+  load = (img) => {
     let image = img;
     image.src = this.props.product.img;
     image.onload = () => {
@@ -29,13 +29,13 @@ class Product extends Component {
 
   onImageLoaded = () => {
     this.setState({
-      isLoaded: true
+      isLoaded: true,
     });
   };
 
   onImageLoadError = () => {
     this.setState({
-      isError: true
+      isError: true,
     });
   };
 
@@ -46,21 +46,26 @@ class Product extends Component {
       <div className="product">
         <div className="img-wrapper">
           {!this.state.isLoaded && <Spinner />}
-          <img ref={(img) => this.img = img} onClick={() => this.props.showModal(id)} className="product-img" src={img} alt={title} />
+          <img
+            ref={(img) => (this.img = img)}
+            onClick={() => this.props.showModal(id)}
+            className="product-img"
+            src={img}
+            alt={title}
+          />
         </div>
         <p className="info">{title}</p>
-        <p className="info">Price: {price}.00 $</p>
+        <p className="info">قیمت: {price}.۰۰۰ ریال</p>
         <div className="btn-wrapper">
           <Link to={`/details/${id}`}>
-            <Button
-              clicked={() => this.props.showDetails(id)}
-              btnType="mobile">Show Details
-        </Button>
+            <Button clicked={() => this.props.showDetails(id)} btnType="mobile">
+              نمایش کامل محصول
+            </Button>
           </Link>
         </div>
       </div>
-    )
+    );
   }
-};
+}
 
 export default Product;

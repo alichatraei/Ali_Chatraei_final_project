@@ -70,11 +70,11 @@ class ProductList extends Component {
             </div>
           </Modal>
           <div className="filter-panel">
-            Sort by:
+            فیلتر بندی:
             <select onChange={this.handleChange} value={checkboxValue}>
-              <option value="relevance">Relevance</option>
-              <option value="price - low to high">Price - low to high</option>
-              <option value="price - high to low">Price - high to low</option>
+              <option value="relevance">همه</option>
+              <option value="price - low to high">قیمت - ارزان تا گران</option>
+              <option value="price - high to low">قیمت - گران تا ارزان</option>
             </select>
             <p className="products-amount">
               تعداد محصول موجود:{" "}
