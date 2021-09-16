@@ -1,49 +1,49 @@
-import React, { Component } from 'react';
-import './Auth.scss';
-import * as actions from '../../store/actions';
-import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
-import { checkValidity } from '../../shared/Validity';
-import PropTypes from 'prop-types';
+import React, { Component } from "react";
+import "./Auth.scss";
+import * as actions from "../../store/actions";
+import { connect } from "react-redux";
+import { Redirect } from "react-router-dom";
+import { checkValidity } from "../../shared/Validity";
+import PropTypes from "prop-types";
 
-import Input from '../../components/UI/Input/Input';
-import Button from '../../components/UI/Button/Button';
-import Spinner from '../../components/UI/Spinner/Spinner';
-import ScrollToTopOnMount from '../../shared/ScrollToTopOnMount';
+import Input from "../../components/UI/Input/Input";
+import Button from "../../components/UI/Button/Button";
+import Spinner from "../../components/UI/Spinner/Spinner";
+import ScrollToTopOnMount from "../../shared/ScrollToTopOnMount";
 
 class Auth extends Component {
   state = {
     controls: {
       email: {
-        elementType: 'input',
+        elementType: "input",
         elementConfig: {
-          type: 'email',
-          placeholder: 'Mail Address'
+          type: "email",
+          placeholder: "ایمیل آدرس",
         },
-        value: '',
+        value: "",
         validation: {
           required: true,
-          isEmail: true
+          isEmail: true,
         },
         valid: false,
-        touched: false
+        touched: false,
       },
       password: {
-        elementType: 'input',
+        elementType: "input",
         elementConfig: {
-          type: 'password',
-          placeholder: 'Password'
+          type: "password",
+          placeholder: "رمز عبور",
         },
-        value: '',
+        value: "",
         validation: {
           required: true,
-          minLength: 6
+          minLength: 6,
         },
         valid: false,
-        touched: false
+        touched: false,
       },
     },
-    isSignup: true
+    isSignup: true,
   };
 
   inputChangedHandler = (e, controlName) => {
@@ -54,26 +54,33 @@ class Auth extends Component {
       [controlName]: {
         ...this.state.controls[controlName],
         value: e.target.value,
-        valid: checkValidity(e.target.value, this.state.controls[controlName].validation),
-        touched: true
-      }
+        valid: checkValidity(
+          e.target.value,
+          this.state.controls[controlName].validation
+        ),
+        touched: true,
+      },
     };
 
     this.setState({
-      controls: updatedControls
+      controls: updatedControls,
     });
   };
 
-  submitHandler = e => {
+  submitHandler = (e) => {
     e.preventDefault();
 
-    this.props.onAuth(this.state.controls.email.value, this.state.controls.password.value, this.state.isSignup);
+    this.props.onAuth(
+      this.state.controls.email.value,
+      this.state.controls.password.value,
+      this.state.isSignup
+    );
   };
 
   switchAuthModeHandler = () => {
-    this.setState(prevState => {
+    this.setState((prevState) => {
       return {
-        isSignup: !prevState.isSignup
+        isSignup: !prevState.isSignup,
       };
     });
   };
@@ -87,11 +94,11 @@ class Auth extends Component {
     for (let key in controls) {
       formElementsArray.push({
         id: key,
-        config: controls[key]
+        config: controls[key],
       });
-    };
+    }
 
-    let form = formElementsArray.map(formElement => (
+    let form = formElementsArray.map((formElement) => (
       <Input
         key={formElement.id}
         elementType={formElement.config.elementType}
@@ -106,25 +113,30 @@ class Auth extends Component {
 
     // Display Spinner
     if (loading) {
-      form = <Spinner />
-    };
+      form = <Spinner />;
+    }
 
     // Display Firebase Error Message
     let errorMessage = null;
     if (error) {
-      errorMessage = (
-        <p>{error.message}</p>
-      )
-    };
+      errorMessage = <p>{error.message}</p>;
+    }
 
     // redirect after signin/login
     let authRedirect = null;
     if (isAuth) {
-      authRedirect = <Redirect to="/" />
-    };
+      authRedirect = <Redirect to="/" />;
+    }
 
-    let title = <h1 className="auth-title">You don't have an account yet? Create them below.</h1>
-    if (!isSignup) title = <h1 className="auth-title">Do you already have an account? Log in below.</h1>;
+    let title = (
+      <h1 className="auth-title">
+        شما تا الان حساب کاربری ندارید ؟ پس هم اکنون بسازید
+      </h1>
+    );
+    if (!isSignup)
+      title = (
+        <h1 className="auth-title">حساب کاربری دارید ؟ هم اکنون وارد شوید</h1>
+      );
 
     return (
       <>
@@ -132,40 +144,41 @@ class Auth extends Component {
         <div className="auth-container">
           {title}
           <div className="switch">
-            <Button
-              clicked={this.switchAuthModeHandler}
-              btnType="dark">SWITCH TO {isSignup ? 'SINGIN' : 'SIGNUP'}</Button>
+            <Button clicked={this.switchAuthModeHandler} btnType="dark">
+              تغییر وضعیت به {isSignup ? "ورود" : "ثبت نام"}
+            </Button>
           </div>
           {authRedirect}
           {errorMessage}
           <form onSubmit={this.submitHandler}>
             {form}
-            <Button>Submit</Button>
+            <Button>تایید</Button>
           </form>
         </div>
       </>
     );
   }
-};
+}
 
 Auth.propTypes = {
   loading: PropTypes.bool.isRequired,
   error: PropTypes.object,
   isAuth: PropTypes.bool.isRequired,
-  onAuth: PropTypes.func.isRequired
+  onAuth: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     loading: state.auth.loading,
     error: state.auth.error,
-    isAuth: state.auth.token !== null
+    isAuth: state.auth.token !== null,
   };
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
-    onAuth: (email, password, isSignup) => dispatch(actions.auth(email, password, isSignup))
+    onAuth: (email, password, isSignup) =>
+      dispatch(actions.auth(email, password, isSignup)),
   };
 };
 
